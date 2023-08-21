@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "283428214902",
+    "project_id": "motra-backend",
+    "storage_bucket": "motra-backend.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283428214902:android:55bf610bbc163d227aa757",
+        "android_client_info": {
+          "package_name": "com.example.montra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283428214902-nvbid2gk04hemjhfedhdet2nognmc8rq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpHaQ_9MOIgUgutNJFdL0U2kUv57H1Bdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283428214902-nvbid2gk04hemjhfedhdet2nognmc8rq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
