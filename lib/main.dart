@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:montra/data/providers/user_provider.dart';
 import 'package:montra/routes/app_pages.dart';
 import 'package:montra/routes/app_routes.dart';
 
@@ -16,6 +17,7 @@ void main() async {
     await Firebase.initializeApp();
   }
   await GetStorage.init();
+  await UserProvider.loadUser();
   runApp(const MyApp());
 }
 
@@ -42,9 +44,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Inter',
           useMaterial3: true,
         ),
-        initialRoute: (StorageHelper.readBool(StorageConsts.loggedIn) ?? false)
-            ? Routes.setupAccount
-            : Routes.splash,
+        initialRoute: UserProvider.initialRoute,
         getPages: AppPages.getPages(),
       ),
     );

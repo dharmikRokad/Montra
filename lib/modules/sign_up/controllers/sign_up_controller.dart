@@ -44,9 +44,8 @@ class SignUpController extends GetxController {
         );
 
         if (user != null) {
-          UserProvider.onLogin(user, nameController.text);
+          await UserProvider.onLogin(user, nameController.text);
           _moveNext();
-          StorageHelper.writeBool(StorageConsts.loggedIn, true);
         }
       } on FirebaseAuthException catch (e) {
         isSignUpLoading(false);
@@ -69,10 +68,13 @@ class SignUpController extends GetxController {
   void onSignUpWithGoogle() async {
     isGoogleLoading(true);
     try {
-      await FireAuthService.signInWithGoogle();
+      User? user =
+          await FireAuthService.signInWithGoogle().then((value) => value.user);
 
-      _moveNext();
-      StorageHelper.writeBool(StorageConsts.loggedIn, true);
+      if (user != null) {
+        await UserProvider.onLogin(user, user.displayName ?? '');
+        _moveNext();
+      }
     } on FirebaseAuthException catch (e) {
       isGoogleLoading(false);
       showSnack(e.message ?? '', SnackType.error);
@@ -82,7 +84,8 @@ class SignUpController extends GetxController {
   }
 
   void _moveNext() {
-    Get.offAllNamed(Routes.setupAccount);
+    Get.offAllNamed(
+        UserProvider.isAlreadyAdded ? Routes.home : Routes.setupAccount);
     showSnack('Signed up successfully.', SnackType.success);
   }
 

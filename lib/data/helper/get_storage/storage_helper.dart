@@ -42,4 +42,8 @@ class StorageHelper {
   static writeIfNull(String key, dynamic value) async {
     await storageBox.writeIfNull(key, value);
   }
+
+  static remove(String key) async {
+    await storageBox.remove(key);
+  }
 }

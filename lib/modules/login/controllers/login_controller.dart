@@ -2,6 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
+import 'package:montra/data/config/logger.dart';
+import 'package:montra/data/helper/firestore/firestore_helper.dart';
+import 'package:montra/data/providers/user_provider.dart';
 import 'package:montra/routes/app_routes.dart';
 
 import '../../../data/constants/storage_constants.dart';
@@ -30,10 +33,11 @@ class LoginController extends GetxController {
       try {
         final User? user = await FireAuthService.signInWithEmail(
             emailController.text, passController.text);
-
         if (user != null) {
+          await UserProvider.onLogin(user, '').then(
+            (value) async => await UserProvider.getNameAndPic(),
+          );
           _moveNext();
-          StorageHelper.writeBool(StorageConsts.loggedIn, true);
         }
       } on FirebaseAuthException catch (e) {
         isLoginLoading(false);
@@ -54,7 +58,7 @@ class LoginController extends GetxController {
   }
 
   void _moveNext() {
-    Get.offAllNamed(Routes.setupAccount);
+    Get.offAllNamed(Routes.home);
     showSnack('Logged in successfully.', SnackType.success);
   }
 

@@ -67,11 +67,14 @@ class AddProfilePicView extends GetView<AddProfilePicController> {
         ],
       ).paddingSymmetric(horizontal: 20.w),
       bottomNavigationBar: BottomAppBar(
-        child: AppButton(
-          onPressed: controller.onContinue,
-          text: 'Continue',
-          type: AppButtonWidthType.full,
-          colorType: AppButtonColorType.primary,
+        child: Obx(
+          () => AppButton(
+            onPressed: controller.onContinue,
+            text: 'Continue',
+            isLoading: controller.isBtnLoading(),
+            type: AppButtonWidthType.full,
+            colorType: AppButtonColorType.primary,
+          ),
         ),
       ),
     );

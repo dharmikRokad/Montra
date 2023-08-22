@@ -56,12 +56,14 @@ class AddNewAccountView extends GetView<AddNewAccountController> {
         },
       ),
       bottomNavigationBar: BottomAppBar(
-        child: AppButton(
-          onPressed: controller.onContinue,
-          isLoading: controller.btnLoading(),
-          text: 'Continue',
-          type: AppButtonWidthType.full,
-          colorType: AppButtonColorType.primary,
+        child: Obx(
+          () => AppButton(
+            onPressed: controller.onContinue,
+            isLoading: controller.btnLoading(),
+            text: 'Continue',
+            type: AppButtonWidthType.full,
+            colorType: AppButtonColorType.primary,
+          ),
         ),
       ),
     );

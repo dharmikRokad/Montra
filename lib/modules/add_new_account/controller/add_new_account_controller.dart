@@ -21,15 +21,15 @@ class AddNewAccountController extends GetxController {
   Future<void> onContinue() async {
     btnLoading(true);
     try {
-      /*await FirestoreHelper.addAccount(
+      await FirestoreHelper.addAccount(
         Account(
           acName: acNameController.text,
           acType: AccountType.fromString(currentAcType().toLowerCase()),
           balance: double.parse(amountController.text),
         ),
-      );*/
+      );
 
-      Get.offNamed(Routes.successScreen);
+      Get.offAllNamed(Routes.successScreen);
     } catch (e) {
       logI(e.toString());
     } finally {
