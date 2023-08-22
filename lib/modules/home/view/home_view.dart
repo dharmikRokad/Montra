@@ -16,14 +16,18 @@ class HomeView extends GetView<HomeController> {
         centerTitle: true,
         backgroundColor: AppColors.k7F3DFF,
       ),
-      body: Center(
-        child: Obx(() => AppButton(
+      body: Column(
+        children: [
+          Obx(
+            () => AppButton(
               onPressed: controller.onLogOut,
               text: 'Log out',
               type: AppButtonWidthType.half,
               colorType: AppButtonColorType.primary,
               isLoading: controller.isBtnLoading(),
-            )),
+            ),
+          )
+        ],
       ),
     );
   }
