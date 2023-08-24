@@ -13,23 +13,6 @@ import '../controller/add_new_account_controller.dart';
 class AddNewAccountView extends GetView<AddNewAccountController> {
   const AddNewAccountView({super.key});
 
-  /*@override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.k7F3DFF,
-      appBar: AppBar(
-        backgroundColor: AppColors.k7F3DFF,
-        title: const Text('Add new account'),
-        centerTitle: true,
-        foregroundColor: Colors.white,
-      ),
-      body: AddDetailsView(
-        onPressed: controller.onContinue,
-        child: _buildFormView(),
-      ),
-    );
-  }*/
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

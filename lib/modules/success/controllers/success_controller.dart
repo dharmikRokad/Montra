@@ -42,7 +42,7 @@ class SuccessController extends GetxController
     super.onInit();
 
     await Future.delayed(2.5.seconds).then(
-      (value) => Get.offAllNamed(Routes.home),
+      (value) => Get.offAllNamed(Routes.tabs),
     );
   }
 }

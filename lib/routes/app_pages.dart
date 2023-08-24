@@ -20,7 +20,11 @@ import 'package:montra/modules/tabs/bindings/tab_binding.dart';
 import 'package:montra/modules/tabs/view/tab_view.dart';
 import 'package:montra/routes/app_routes.dart';
 
+import '../modules/profile/binding/profile_binding.dart';
+import '../modules/profile/view/profile_view.dart';
 import '../modules/set_account/views/set_account_view.dart';
+import '../modules/transaction/binding/transaction_binding.dart';
+import '../modules/transaction/view/transaction_view.dart';
 
 class AppPages {
   static List<GetPage> getPages() => <GetPage>[
@@ -45,9 +49,9 @@ class AppPages {
           binding: SignUpBinding(),
         ),
         GetPage(
-          name: Routes.tab,
-          page: () => const TabView(),
-          binding: TabBinding(),
+          name: Routes.tabs,
+          page: () => const TabsView(),
+          binding: TabsBinding(),
         ),
         GetPage(
           name: Routes.setupAccount,
@@ -73,6 +77,21 @@ class AppPages {
           name: Routes.home,
           page: () => const HomeView(),
           binding: HomeBinding(),
+        ),
+        GetPage(
+          name: Routes.addTransaction,
+          page: () => const TransactionView(),
+          binding: TransactionBinding(),
+        ),
+        GetPage(
+          name: Routes.profile,
+          page: () => const ProfileView(),
+          binding: ProfileBinding(),
+        ),
+        GetPage(
+          name: Routes.addTransaction,
+          page: () => const TransactionView(),
+          binding: TransactionBinding(),
         ),
       ];
 }

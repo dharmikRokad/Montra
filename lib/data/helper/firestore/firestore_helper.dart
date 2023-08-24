@@ -11,6 +11,8 @@ class FirestoreHelper {
   static FirebaseFirestore firestore = FirebaseFirestore.instance;
   static CollectionReference<Map<String, dynamic>> users =
       firestore.collection(FirestoreConsts.users);
+  static CollectionReference<Map<String, dynamic>> categories =
+      firestore.collection(FirestoreConsts.categories);
 
   /// Method to add users data (like null accounts & transactions ) to firestore
   static Future<void> addUser(User user, String name) async {

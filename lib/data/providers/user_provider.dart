@@ -73,5 +73,5 @@ class UserProvider {
   }
 
   static String get initialRoute =>
-      isLoggedIn && uid != null ? Routes.home : Routes.splash;
+      isLoggedIn && uid != null ? Routes.tabs : Routes.splash;
 }

@@ -4,7 +4,6 @@ class AppAssets {
   static const String onBoard1 = '$path/on_board_1.png';
   static const String onBoard2 = '$path/on_board_2.png';
   static const String onBoard3 = '$path/on_board_3.png';
-  static const String emailVerification = '$path/email_on_way.png';
   static const String success = '$path/success.png';
   static const String google = '$path/google.png';
   static const String notification = '$path/notification.png';
